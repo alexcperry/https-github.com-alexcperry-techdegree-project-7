@@ -2,17 +2,20 @@
 /*           Media Queries          */
 /*----------------------------------*/
 
-* {
-  background-color: #ab1245;
+.bell-icon {
 }
 
-.test-svg {
-  fill: #ab1245;
+.dashboard-icon {
 }
 
-.bell-icon-path {
-  stroke: #daed54;
-  fill: #777;
+.facebook-icon {
+
+}
+
+.google-plus-icon {
+}
+
+.members-icon {
 }
 
 @media (min-width: 768px) {
