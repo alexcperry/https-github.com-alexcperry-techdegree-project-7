@@ -2,6 +2,19 @@
 /*           Media Queries          */
 /*----------------------------------*/
 
+* {
+  background-color: #ab1245;
+}
+
+.test-svg {
+  fill: #ab1245;
+}
+
+.bell-icon-path {
+  stroke: #daed54;
+  fill: #777;
+}
+
 @media (min-width: 768px) {
   
 }
