@@ -159,6 +159,37 @@ nav {
 }
 
 /*----------------------------------*/
+/*             Settings             */
+/*----------------------------------*/
+
+.slide-btn {
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.switch-label {
+  display: inline;
+}
+
+.hidden {
+  display: none;
+}
+
+#email-notifications-btn,
+#public-profile-btn {
+  width: 15px;
+  height: 15px;
+  border: 1px solid grey;
+  border-radius: 50%;;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space space-between;
+}
+
+/*----------------------------------*/
 /*           Media Queries          */
 /*----------------------------------*/
 
