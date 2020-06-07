@@ -110,7 +110,7 @@
 
   <!-- HEADER -->
   <header>
-    <h2>Your<span class="grey-title">AppTM</span></h2>
+    <h2>Your<span class="grey-title">App<sup>TM</sup></span></h2>
     <div class="notifications">
       <svg id="bell-svg">
         <use xlink:href="#bell">
@@ -159,7 +159,7 @@
       </ul>
     </nav>
 
-    <div class="traffic section wrapper" id="desktop-link">
+    <div class="traffic section wrapper2" id="desktop-link">
       <h2>Dashboard</h2>
       <div class="search-bar">
         <input type="text" placeholder="Search">
@@ -170,42 +170,48 @@
       </div>
     </div>
 
-    <div class="daily-traffic section wrapper">
-      <h3 class="section-heading">Daily Traffic</h3>
-      <canvas id="daily-traffic-chart"></canvas>
+    <div class="daily-traffic section">
+      <div class=wrapper>
+        <h3 class="section-heading">Daily Traffic</h3>
+        <canvas id="daily-traffic-chart"></canvas>
+      </div>
     </div>
 
-    <div class="mobile-users section wrapper">
-      <h3 class="section-heading">Mobile Users</h3>
-      <canvas id="mobile-users-chart"></canvas>
+    <div class="mobile-users section">
+      <div class="wrapper">
+        <h3 class="section-heading">Mobile Users</h3>
+        <canvas id="mobile-users-chart"></canvas>
+      </div>
     </div>
 
-    <div class="social-stats section wrapper" id="visits-link">
-      <h3 class="section-heading">Social Stats</h3>
-      <div class="social-stats-graphics">
-        <div class="social-stat-box">
-          <div class="blue-circle">
-            <svg id="facebook-icon">
-              <use xlink:href="#twitter">
-            </svg>
+    <div class="social-stats section" id="visits-link">
+      <div class="wrapper2">
+        <h3 class="section-heading">Social Stats</h3>
+        <div class="social-stats-graphics">
+          <div class="social-stat-box">
+            <div class="blue-circle">
+              <svg>
+                <use xlink:href="#twitter">
+              </svg>
+            </div>
+            <p>10,345</p>
           </div>
-          <p>10,345</p>
-        </div>
-        <div class="social-stat-box">
-          <div class="blue-circle">
-            <svg>
-              <use xlink:href="#facebook">
-            </svg>
+          <div class="social-stat-box">
+            <div class="blue-circle">
+              <svg>
+                <use xlink:href="#facebook">
+              </svg>
+            </div>
+            <p>8,739</p>
           </div>
-          <p>8,739</p>
-        </div>
-        <div class="social-stat-box">
-          <div class="blue-circle">
-            <svg>
-              <use xlink:href="#google-plus">
-            </svg>
+          <div class="social-stat-box">
+            <div class="blue-circle">
+              <svg>
+                <use xlink:href="#google-plus">
+              </svg>
+            </div>
+            <p>2,530</p>
           </div>
-          <p>2,530</p>
         </div>
       </div>
     </div>
@@ -314,7 +320,7 @@
     </div>
 
     <div class="settings section" id="settings-link">
-      <div class="wrapper">
+      <div class="wrapper settings-layout">
         <h3 class="section-heading">Settings</h3>
         <div class="setting-group">
           <label for="email-notifications-btn">Send Email Notifications</label>
@@ -358,6 +364,7 @@
 <!-- 
 Known Issues List:
 1. Facebook Icon not showing up properly
-5. Section borders
-6. Spacing of titles, alignment of titles
+2. Spacing in the following sections: social stats
+3. Can the traffic section be shorter
+4. Vertical bar between bell and and propic
 -->

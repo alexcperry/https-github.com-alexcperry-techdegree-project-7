@@ -30,8 +30,8 @@ svg {
   width: 32px;
 }
 
-#facebook-icon use{
-  transform: translateX(-10) translateY(-10);
+#facebook-icon{
+  transform: translateX(-10);
 }
 
 form button {
@@ -47,6 +47,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   background-color: #7575C4;
   color: #fff;
   padding: 10px 0;
@@ -58,15 +59,16 @@ header div {
   color: #fff;
 }
 
-.grey-title {
+.grey-title,
+.grey-title sup {
   color: #ccc;
   font-weight: lighter;
 }
 
 #notification-alert{
   position: absolute;
-  top: 10px;
-  right: 72px;
+  top: 2px;
+  left: 18px;
   height: 12px;
   width: 12px;
   border-radius: 50%;
@@ -82,6 +84,7 @@ header div {
 .notifications {
   display: flex;
   align-items: center; 
+  position: relative;
 }
 
 .notifications * {
@@ -245,6 +248,7 @@ nav {
 }
 
 .member {
+  min-height: 64px;
   width: 70%;
   max-width: 350px;
   display: flex;
@@ -293,10 +297,6 @@ nav {
   justify-content: space-evenly;
   align-items: center;
   grid-area: 'message-user';
-}
-
-.message-user * {
-  margin: 5px 0;
 }
 
 .message-user h3 {
@@ -373,6 +373,19 @@ nav {
 .wrapper {
   width: 90%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.wrapper2 {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 #email-notifications-btn,
@@ -381,9 +394,8 @@ nav {
   left: 0px;
   width: 15px;
   height: 15px;
-  border: 1px solid grey;
-  border-radius: 50%;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 #email-notifications-btn:checked,
@@ -441,9 +453,18 @@ nav {
     "navigation settings";
   }
 
+  .wrapper2 {
+    width: 95%;
+  }
+
   h3:first-child,
   h3:nth-child(2) {
     align-self: flex-start;
+  }
+
+  .user-name {
+    display: block;
+    color: #ccc;
   }
 
   .navigation {
@@ -517,5 +538,9 @@ nav {
   .social-stats {
     grid-column-start: 2;
     grid-column-end: 4;
+  }
+
+  .settings-layout {
+    height: 219px;
   }
 }
