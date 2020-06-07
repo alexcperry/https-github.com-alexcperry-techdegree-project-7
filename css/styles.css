@@ -30,10 +30,6 @@ svg {
   width: 32px;
 }
 
-#facebook-icon{
-  transform: translateX(-10);
-}
-
 form button {
   border-style: solid;
   width:  45%;
@@ -90,6 +86,7 @@ header div {
 .notifications * {
   margin: 0 5px;
 }
+
 
 nav {
   background-color: #4e4b75;
@@ -237,6 +234,18 @@ nav {
   width: 50px;
   background-color: #7575C4;
   border-radius: 50%;
+}
+
+#twitter path {
+  transform: translateY(4px);
+}
+
+#facebook-svg {
+  height: 40px;
+}
+
+#facebook path {
+  transform: translateX(-13px) translateY(-5px);
 }
 
 /*----------------------------------*/
@@ -517,6 +526,10 @@ nav {
     border-right: 1px solid lightgrey;
   }
 
+  .settings-layout {
+    height: 219px;
+  }
+
 }
 
 @media (min-width: 1024px) {
@@ -538,9 +551,5 @@ nav {
   .social-stats {
     grid-column-start: 2;
     grid-column-end: 4;
-  }
-
-  .settings-layout {
-    height: 219px;
   }
 }
