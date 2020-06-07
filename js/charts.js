@@ -4,13 +4,14 @@
 // Header
 const notificationAlert = document.getElementById('notification-alert');
 const trafficSection = document.querySelector('.traffic');
-const trafficSectionHeading = document.querySelector('.traffic h3');
+const trafficContent = document.querySelector('.traffic-content');
 
 notificationAlert.addEventListener('click', () => {
 
   //Create HTML elements
   const alertDiv = document.createElement('div');
   alertDiv.className = "notification";
+  const alertTextDiv = document.createElement('div');
   const alertDivAlertText = document.createElement('span');
   alertDivAlertText.className = "alert-text";
   alertDivAlertText.textContent = "Alert";
@@ -18,12 +19,14 @@ notificationAlert.addEventListener('click', () => {
   alertDivText.textContent = "Text here comes the text, once upon a time there was a good dog - whew!";
   const alertDivBtn = document.createElement('button');
   alertDivBtn.className = "alert-btn";
+  alertDivBtn.style.marginLeft = "10px";
 
   //Construct HTML
-  alertDiv.appendChild(alertDivAlertText);
-  alertDiv.appendChild(alertDivText);
+  alertTextDiv.appendChild(alertDivAlertText);
+  alertTextDiv.appendChild(alertDivText);
+  alertDiv.appendChild(alertTextDiv);
   alertDiv.appendChild(alertDivBtn);
-  trafficSection.insertBefore(alertDiv, trafficSectionHeading);
+  trafficSection.insertBefore(alertDiv, trafficContent);
 
   //Add event listeners for close buttons
   alertDivBtn.addEventListener('click', () => {
@@ -117,7 +120,6 @@ emailNotifsButton.addEventListener('click', () => {
 
   if (emailSlideButton.style.backgroundColor === "rgb(255, 255, 255)" ||
     emailSlideButton.style.backgroundColor === "") {
-    console.log("Hello");
     emailSlideButton.style.backgroundColor = "rgb(82, 82, 188)";
   } else {
     emailSlideButton.style.backgroundColor = "rgb(255, 255, 255)";
@@ -147,7 +149,6 @@ publicProfileButton.addEventListener('click', () => {
 
   if (profileSlideButton.style.backgroundColor === "rgb(255, 255, 255)" ||
     profileSlideButton.style.backgroundColor === "") {
-    console.log("Hello");
     profileSlideButton.style.backgroundColor = "rgb(82, 82, 188)";
   } else {
     profileSlideButton.style.backgroundColor = "rgb(255, 255, 255)";
