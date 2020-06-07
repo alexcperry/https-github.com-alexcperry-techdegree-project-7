@@ -19,7 +19,7 @@ notificationAlert.addEventListener('click', () => {
   alertDivText.textContent = "Text here comes the text, once upon a time there was a good dog - whew!";
   const alertDivBtn = document.createElement('button');
   alertDivBtn.className = "alert-btn";
-  alertDivBtn.style.marginLeft = "10px";
+  alertDivBtn.textContent = "X";
 
   //Construct HTML
   alertTextDiv.appendChild(alertDivAlertText);
