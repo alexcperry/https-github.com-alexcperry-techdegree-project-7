@@ -1,5 +1,12 @@
 
 
+* {
+  color: grey;
+  border-color: lightgrey;
+  font-family: sans-serif;
+  font-weight: 300;
+}
+
 body {
   background-color: #fff;
 }
@@ -23,15 +30,38 @@ svg {
   width: 32px;
 }
 
+#facebook-icon use{
+  transform: translateX(-10) translateY(-10);
+}
+
+form button {
+  border-style: solid;
+}
+
 /*----------------------------------*/
 /*           Header Styles          */
 /*----------------------------------*/
 
+
+
 header {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  background-color: #6666ff;
+  justify-content: space-between;
+  background-color: #7575C4;
+  color: #fff;
+  padding: 10px 0;
+}
+
+header h2,
+header div {
+  margin: 0 20px;
+  color: #fff;
+}
+
+.grey-title {
+  color: #ccc;
+  font-weight: lighter;
 }
 
 .user-name {
@@ -48,7 +78,7 @@ header {
 }
 
 nav {
-  background-color: #5252bc;
+  background-color: #4e4b75;
 }
 
 .icon {
@@ -76,38 +106,99 @@ nav {
   margin: 2px;
 }
 
+.section-heading {
+  margin-top: 15px;
+}
+
+/*----------------------------------*/
+/*          Traffic Styles          */
+/*----------------------------------*/
+
+.traffic {
+  grid-area: 'traffic';
+  border: none;
+}
+
+.traffic h2 {
+  margin-top: 8px;
+}
+
+.search-bar input{
+  padding-left: 5px;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+/*----------------------------------*/
+/*       Daily Traffic Styles       */
+/*----------------------------------*/
+
+.daily-traffic {
+  grid-area: 'daily-traffic';
+}
+
+/*----------------------------------*/
+/*       Mobile Users Styles        */
+/*----------------------------------*/
+
+.mobile-users {
+  grid-area: 'mobile-users';
+}
+
 /*----------------------------------*/
 /*        Social Stats Styles       */
 /*----------------------------------*/
 
 .social-stats {
+  grid-area: 'social-stats';
+}
+
+.social-stats-graphics {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
+  width: 70%;
 }
 
 .social-stat-box {
   margin: 10px 0;
-  border: 1px solid #aaa;
+  border: 1px solid lightgrey;
   border-radius: 5px;
-  width: 70%;
-  max-width: 300px;
-  background-color: #ccc;
+  width: 100%;
+  max-width: 200px;
+  background-color: #f5f5f5;
+}
+
+.blue-circle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  background-color: darkblue;
+  border-radius: 50%;
 }
 
 /*----------------------------------*/
 /*          Members Styles          */
 /*----------------------------------*/
 
+.members {
+  grid-area: 'new-members';
+}
+
 .member {
   width: 70%;
-  max-width: 300px;
+  max-width: 350px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   border-bottom: solid lightgrey 1px;
+  font-size: 14px;
 } .member:last-child {
   border-bottom: none;
 }
@@ -116,12 +207,21 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100px;
+  align-items: center;
 }
 
 .member-info {
   display: flex;
   flex-direction: column;
+}
+
+/*----------------------------------*/
+/*      Recent Activity Styles      */
+/*----------------------------------*/
+
+.recent-activity {
+  grid-area: 'recent-activity';
+  font-size: 14px;
 }
 
 /*----------------------------------*/
@@ -133,10 +233,15 @@ nav {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  grid-area: 'message-user';
 }
 
 .message-user * {
   margin: 5px 0;
+}
+
+.message-user h3 {
+
 }
 
 .message-form {
@@ -147,9 +252,21 @@ nav {
 }
 
 .message-form * {
-  width: 95%;
   border-width: 1px;
   border-radius: 5px;
+}
+
+.message-form input  {
+  width: calc(95% - 20px);
+  height: 25px;
+  padding: 5px 10px;
+  border-style: solid;
+}
+
+.message-form textarea {
+  width: calc(95% - 20px);
+  height: 80px;
+  padding: 8px 10px;
 }
 
 .submit-btn {
@@ -162,12 +279,28 @@ nav {
 /*             Settings             */
 /*----------------------------------*/
 
+.settings {
+  grid-area: 'settings';
+}
+
+.setting-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .slide-btn {
-  border: 1px solid grey;
+  height: 20px;
+  width: 70px;
+  display: inline-block;
+  position: relative;
+  border: 1px solid lightgrey;
   border-radius: 5px;
+  background-color: #fff;
 }
 
 .switch-label {
+  float: left;
   display: inline;
 }
 
@@ -175,18 +308,43 @@ nav {
   display: none;
 }
 
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
 #email-notifications-btn,
 #public-profile-btn {
+  position: relative;
+  left: 0px;
   width: 15px;
   height: 15px;
   border: 1px solid grey;
-  border-radius: 50%;;
+  border-radius: 50%;
+  transition: 0.3s;
 }
+
+#email-notifications-btn:checked,
+#public-profile-btn:checked {
+  left: 20px;
+} 
 
 .settings-form {
   display: flex;
   flex-direction: column;
-  justify-content: space space-between;
+  justify-content: space-between;
+}
+
+#settings-save-btn {
+  background-color: #5252bc;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+#settings-cancel-btn {
+  background-color: #ddd;
+  border-radius: 5px;
 }
 
 /*----------------------------------*/
@@ -197,62 +355,92 @@ nav {
   
   .main {
     display: grid;
-    grid-template-columns: 100px 1fr 1fr;
+    grid-template-columns: 80px 1fr;
     grid-template-areas: 
-    "navigation traffic traffic"
-    "navigation daily-traffic mobile-users"
-    "navigation social-stats social-stats"
-    "navigation new-members recent-activity"
-    "navigation messager-user settings";
+    "navigation traffic"
+    "navigation daily-traffic"
+    "navigation mobile-users"
+    "navigation social-stats"
+    "navigation new-members"
+    "navigation recent-activity"
+    "navigation message-user"
+    "navigation settings";
   }
 
-  .navigation-section {
+  .navigation {
     grid-area: 'navigation';
-    border: solid red 2px;
+    grid-row-start: 1;
+    grid-row-end: -1;
   }
 
-  .traffic-section {
-    grid-area: 'traffic';
-    border: solid red 2px;
+  .navigation ul {
+    flex-direction: column;
   }
 
-  .daily-traffic-section {
-    grid-area: 'daily-traffic';
-    border: solid red 2px;
+  .chosen-nav {
+    border-top: none;
+    border-left: solid lightgreen 2px;
   }
 
-  .mobile-users-section {
-    grid-area: 'mobile-users';
-    border: solid red 2px;
+  .traffic {
+    flex-flow: row wrap;
   }
 
-  .social-stats-section {
-    grid-area: 'social-stats';
-    border: solid red 2px;
+  .traffic h2,
+  .traffic div {
+    flex-basis: 49%;
   }
 
-  .members-section {
-    grid-area: 'new-members';
-    border: solid red 2px;
+  .search-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 8px;
   }
 
-  .recent-activity-section {
-    grid-area: 'recent-activity';
-    border: solid red 2px;
+  .daily-traffic {
+    border-right: 1px solid lightgrey;
   }
 
-  .message-user-section {
-    grid-area: 'message-user';
-    border: solid red 2px;
+  .social-stats-graphics {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
   }
 
-  .settings-section {
-    grid-area: 'settings';
-    border: solid red 2px;
+  .social-stat-box {
+    max-width: 200px;
+    margin: 10px 20px;
+  }
+
+  .members {
+    border-right: 1px solid lightgrey;
+  }
+
+  .message-user {
+    border-right: 1px solid lightgrey;
   }
 
 }
 
 @media (min-width: 1024px) {
-  
+  .main {
+    grid-template-columns: 80px 1fr 1fr;
+    grid-template-areas: 
+    "navigation traffic traffic"
+    "navigation daily-traffic mobile-users"
+    "navigation social-stats"
+    "navigation new-members recent-activity"
+    "navigation message-user settings";
+  }
+
+  .traffic {
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+
+  .social-stats {
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
 }

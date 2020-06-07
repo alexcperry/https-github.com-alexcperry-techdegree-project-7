@@ -11,8 +11,6 @@ const membersIcon = document.getElementById('members-icon');
 const visitsIcon = document.getElementById('visits-icon');
 const settingsIcon = document.getElementById('settings-icon');
 
-membersIcon.style.border = 'solid red 2px;';
-
 const clearNavClasses = () => {
   desktopIcon.setAttribute("class", "");
   membersIcon.setAttribute("class", "");
@@ -39,6 +37,78 @@ visitsNav.addEventListener('click', () => {
 settingsNav.addEventListener('click', () => {
   clearNavClasses();
   settingsIcon.setAttribute("class", "chosen-nav");
+
+})
+
+// Settings
+const emailNotifsLabels = document.querySelectorAll('#email-notifications-btn ~ p');
+const emailNotifsButton = document.getElementById('email-notifications-btn');
+const publicProfileLabels = document.querySelectorAll('#public-profile-btn ~ p');
+const publicProfileButton = document.getElementById('public-profile-btn');
+
+const whitenLabels = (e, color) => {
+  for (let i = 0; e.length; i += 1) {
+    e[i].style.color = color;
+  }
+}
+
+emailNotifsButton.addEventListener('click', () => {
+
+  const emailSlideButton = emailNotifsButton.parentNode;
+
+  for (let i = 0; i < emailNotifsLabels.length; i += 1) {
+    if (emailNotifsLabels[i].className === "switch-label hidden") {
+      emailNotifsLabels[i].className = "switch-label";
+    } else {
+      emailNotifsLabels[i].className += " hidden";
+    }
+
+    if (emailNotifsButton.checked) {
+      emailNotifsLabels[i].style.color = "#fff";
+      emailNotifsLabels[i].style.fontWeight = "bold";
+    } else {
+      emailNotifsLabels[i].style.color = "grey";
+      emailNotifsLabels[i].style.fontWeight = "";
+    }
+  }
+
+  if (emailSlideButton.style.backgroundColor === "rgb(255, 255, 255)" ||
+    emailSlideButton.style.backgroundColor === "") {
+    console.log("Hello");
+    emailSlideButton.style.backgroundColor = "rgb(82, 82, 188)";
+  } else {
+    emailSlideButton.style.backgroundColor = "rgb(255, 255, 255)";
+  }
+
+})
+
+publicProfileButton.addEventListener('click', () => {
+
+  const profileSlideButton = publicProfileButton.parentNode;
+
+  for (let i = 0; i < publicProfileLabels.length; i += 1) {
+    if (publicProfileLabels[i].className === "switch-label hidden") {
+      publicProfileLabels[i].className = "switch-label";
+    } else {
+      publicProfileLabels[i].className += " hidden";
+    }
+
+    if (publicProfileButton.checked) {
+      publicProfileLabels[i].style.color = "#fff";
+      publicProfileLabels[i].style.fontWeight = "bold";
+    } else {
+      publicProfileLabels[i].style.color = "grey";
+      publicProfileLabels[i].style.fontWeight = "";
+    }
+  }
+
+  if (profileSlideButton.style.backgroundColor === "rgb(255, 255, 255)" ||
+    profileSlideButton.style.backgroundColor === "") {
+    console.log("Hello");
+    profileSlideButton.style.backgroundColor = "rgb(82, 82, 188)";
+  } else {
+    profileSlideButton.style.backgroundColor = "rgb(255, 255, 255)";
+  }
 
 })
 

@@ -110,7 +110,7 @@
 
   <!-- HEADER -->
   <header>
-    <h2>YourAppTM</h2>
+    <h2>Your<span class="grey-title">AppTM</span></h2>
     <div class="notifications">
       <svg>
         <use xlink:href="#bell">
@@ -158,96 +158,104 @@
       </ul>
     </nav>
 
-    <div class="traffic section" id="desktop-link">
+    <div class="traffic section wrapper" id="desktop-link">
       <h2>Dashboard</h2>
       <div class="search-bar">
         <input type="text" placeholder="Search">
       </div>
-      <h3>Traffic</h3>
+      <h3 class="section-heading">Traffic</h3>
       <canvas id="web-traffic-chart"></canvas>
     </div>
 
-    <div class="daily-traffic section">
-      <h3>Daily Traffic</h3>
+    <div class="daily-traffic section wrapper">
+      <h3 class="section-heading">Daily Traffic</h3>
       <canvas id="daily-traffic-chart"></canvas>
     </div>
 
-    <div class="mobile-users section">
-      <h3>Mobile Users</h3>
+    <div class="mobile-users section wrapper">
+      <h3 class="section-heading">Mobile Users</h3>
       <canvas id="mobile-users-chart"></canvas>
     </div>
 
     <div class="social-stats section" id="visits-link">
-      <h3>Social Stats</h3>
-      <div class="social-stat-box">
-        <svg>
-          <use xlink:href="#facebook">
-        </svg>
-      </div>
-      <div class="social-stat-box">
-        <svg>
-          <use xlink:href="#google-plus">
-        </svg>
-      </div>
-      <div class="social-stat-box">
-        <svg>
-          <use xlink:href="#twitter">
-        </svg>
+      <h3 class="section-heading">Social Stats</h3>
+      <div class="social-stats-graphics">
+        <div class="social-stat-box">
+          <div class="blue-circle">
+            <svg id="facebook-icon">
+              <use xlink:href="#facebook">
+            </svg>
+          </div>
+        </div>
+        <div class="social-stat-box">
+          <div class="blue-circle">
+            <svg>
+              <use xlink:href="#google-plus">
+            </svg>
+          </div>
+        </div>
+        <div class="social-stat-box">
+          <div class="blue-circle">
+            <svg>
+              <use xlink:href="#twitter">
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="members section" id="members-link">
-      <h3>New Members</h3>
+      <h3 class="section-heading">New Members</h3>
       <div class="member">
         <div class="member-group">
-          <img src="images/member-2.jpg" class="user-picture">
+          <img src="images/member-1.jpg" class="user-picture">
           <div class="member-info">
-            <p>Name</p>
-            <p>Email</p>
+            <p>Victoria Chambers</p>
+            <p>victoria.chambers80 @example.com</p>
           </div>
         </div>
-        <p>Date</p>
+        <p>10/15/15</p>
       </div>
       <div class="member">
         <div class="member-group">
           <img src="images/member-2.jpg" class="user-picture">
           <div class="member-info">
-            <p>Name</p>
-            <p>Email</p>
+            <p>Dale Byrd</p>
+            <p>dale.byrd52 @example.com</p>
           </div>
         </div>
-        <p>Date</p>
+        <p>10/15/15</p>
       </div>
       <div class="member">
         <div class="member-group">
-          <img src="images/member-2.jpg" class="user-picture">
+          <img src="images/member-3.jpg" class="user-picture">
           <div class="member-info">
-            <p>Name</p>
-            <p>Email</p>
+            <p>Dawn Wood</p>
+            <p>dawn.wood16 @example.com</p>
           </div>
         </div>
-        <p>Date</p>
+        <p>10/15/15</p>
       </div>
       <div class="member">
         <div class="member-group">
-          <img src="images/member-2.jpg" class="user-picture">
+          <img src="images/member-4.jpg" class="user-picture">
           <div class="member-info">
-            <p>Name</p>
-            <p>Email</p>
+            <p>Dan Oliver</p>
+            <p>dan.oliver82 @example.com</p>
           </div>
         </div>
-        <p>Date</p>
+        <p>10/15/15</p>
       </div>
     </div>
 
     <div class="recent-activity section">
-      <h3>Recent Activity</h3>
+      <h3 class="section-heading">Recent Activity</h3>
       <div class="member">
         <div class="member-group">
-          <img src="images/member-2.jpg" class="user-picture">
+          <img src="images/member-1.jpg" class="user-picture">
           <div class="member-info">
-            <p>Name</p>
-            <p>Email</p>
+            <p>Victoria Chambers commented on YourApp's SEO Tips</p>
+            <p>4 hours ago</p>
           </div>
         </div>
         <p>Date</p>
@@ -256,28 +264,28 @@
         <div class="member-group">
           <img src="images/member-2.jpg" class="user-picture">
           <div class="member-info">
-            <p>Name</p>
-            <p>Email</p>
+            <p>Dale Byrd liked the post Facebook's Changes for 2016</p>
+            <p>5 hours ago</p>
           </div>
         </div>
         <p>Date</p>
       </div>
       <div class="member">
         <div class="member-group">
-          <img src="images/member-2.jpg" class="user-picture">
+          <img src="images/member-3.jpg" class="user-picture">
           <div class="member-info">
-            <p>Name</p>
-            <p>Email</p>
+            <p>Dawn Wood commented on Facebook's Changes for 2016</p>
+            <p>5 hours ago</p>
           </div>
         </div>
         <p>Date</p>
       </div>
       <div class="member">
         <div class="member-group">
-          <img src="images/member-2.jpg" class="user-picture">
+          <img src="images/member-4.jpg" class="user-picture">
           <div class="member-info">
-            <p>Name</p>
-            <p>Email</p>
+            <p>Dan Oliver posted YourApp's SEO Tips</p>
+            <p>1 day ago</p>
           </div>
         </div>
         <p>Date</p>
@@ -285,7 +293,7 @@
     </div>
 
     <div class="message-user section">
-      <h3>Message User</h3>
+      <h3 class="section-heading">Message User</h3>
       <form action="POST" class="message-form">
         <input type="text" placeholder="Search for User">
         <textarea placeholder="Message for User"></textarea>
@@ -294,30 +302,33 @@
     </div>
 
     <div class="settings section" id="settings-link">
-      <h3>Settings</h3>
-      <div>
+      <h3 class="section-heading">Settings</h3>
+      <div class="setting-group">
         <label for="email-notifications-btn">Send Email Notifications</label>
         <span class="slide-btn">
+          <input type="checkbox" id="email-notifications-btn"></input>
           <p class="switch-label hidden">On</p>
           <p class="switch-label">Off</p>
-          <button id="email-notifications-btn"></button>
         </span>
       </div>
-      <div>
+      <div class="setting-group">
         <label for="public-profile-btn">Set Profile to Public</label>
         <span class="slide-btn">
+          <input type="checkbox" id="public-profile-btn"></input>
           <p class="switch-label hidden">On</p>
           <p class="switch-label">Off</p>
-          <button id="public-profile-btn"></button>
         </span>
       </div>
       <form class="settings-form">
         <select id="timezone">
-          <option value="">WORDS HERE</option>
+          <option value="Eastern">Eastern (EST)</option>
+          <option value="Central">Central (CST)</option>
+          <option value="Mountain">Mountain (MST)</option>
+          <option value="Pacific">Pacific (PST)</option>
         </select>
         <div>
-          <button type="submit">Save</button>
-          <button type="submit">Cancel</button>
+          <button id="settings-save-btn" type="submit">Save</button>
+          <button id="settings-cancel-btn" type="submit">Cancel</button>
         </div>
       </form>
     </div>
