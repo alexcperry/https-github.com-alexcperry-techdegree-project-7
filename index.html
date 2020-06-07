@@ -112,11 +112,12 @@
   <header>
     <h2>Your<span class="grey-title">AppTM</span></h2>
     <div class="notifications">
-      <svg>
+      <svg id="bell-svg">
         <use xlink:href="#bell">
       </svg>
+      <button id="notification-alert"></button>
 
-      <img src="images/member-1.jpg" alt="user profile picture" class="user-picture">
+      <img src="images/my-headshot.jpg" alt="user profile picture" class="user-picture">
       <p class="user-name">Alex Perry</p>
     </div>
   </header>
@@ -177,7 +178,7 @@
       <canvas id="mobile-users-chart"></canvas>
     </div>
 
-    <div class="social-stats section" id="visits-link">
+    <div class="social-stats section wrapper" id="visits-link">
       <h3 class="section-heading">Social Stats</h3>
       <div class="social-stats-graphics">
         <div class="social-stat-box">
@@ -204,7 +205,7 @@
       </div>
     </div>
 
-    <div class="members section" id="members-link">
+    <div class="members section wrapper" id="members-link">
       <h3 class="section-heading">New Members</h3>
       <div class="member">
         <div class="member-group">
@@ -248,7 +249,7 @@
       </div>
     </div>
 
-    <div class="recent-activity section">
+    <div class="recent-activity section wrapper">
       <h3 class="section-heading">Recent Activity</h3>
       <div class="member">
         <div class="member-group">
@@ -292,16 +293,16 @@
       </div>
     </div>
 
-    <div class="message-user section">
+    <div class="message-user section wrapper">
       <h3 class="section-heading">Message User</h3>
-      <form action="POST" class="message-form">
+      <form class="message-form">
         <input type="text" placeholder="Search for User">
         <textarea placeholder="Message for User"></textarea>
         <button type="submit" class="submit-btn">Send</button>
       </form>
     </div>
 
-    <div class="settings section" id="settings-link">
+    <div class="settings section wrapper" id="settings-link">
       <h3 class="section-heading">Settings</h3>
       <div class="setting-group">
         <label for="email-notifications-btn">Send Email Notifications</label>
@@ -326,7 +327,7 @@
           <option value="Mountain">Mountain (MST)</option>
           <option value="Pacific">Pacific (PST)</option>
         </select>
-        <div>
+        <div class="settings-btn">
           <button id="settings-save-btn" type="submit">Save</button>
           <button id="settings-cancel-btn" type="submit">Cancel</button>
         </div>
@@ -344,11 +345,8 @@
 <!-- 
 Known Issues List:
 1. Facebook Icon not showing up properly
-2. Font weight of buttons
-3. Submission of forms needs to work properly
 4. Notification alert system
 5. Section borders
 6. Spacing of titles, alignment of titles
 7. Arrow icon on recent activity
-8. My profile picture
 -->

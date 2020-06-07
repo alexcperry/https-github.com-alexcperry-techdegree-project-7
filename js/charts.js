@@ -1,6 +1,38 @@
 
 // EVENT LISTENERS
 
+// Header
+const notificationAlert = document.getElementById('notification-alert');
+const trafficSection = document.querySelector('.traffic');
+const trafficSectionHeading = document.querySelector('.traffic h3');
+
+notificationAlert.addEventListener('click', () => {
+
+  //Create HTML elements
+  const alertDiv = document.createElement('div');
+  alertDiv.className = "notification";
+  const alertDivAlertText = document.createElement('span');
+  alertDivAlertText.className = "alert-text";
+  alertDivAlertText.textContent = "Alert";
+  const alertDivText = document.createElement('p');
+  alertDivText.textContent = "Text here comes the text, once upon a time there was a good dog - whew!";
+  const alertDivBtn = document.createElement('button');
+  alertDivBtn.className = "alert-btn";
+
+  //Construct HTML
+  alertDiv.appendChild(alertDivAlertText);
+  alertDiv.appendChild(alertDivText);
+  alertDiv.appendChild(alertDivBtn);
+  trafficSection.insertBefore(alertDiv, trafficSectionHeading);
+
+  //Add event listeners for close buttons
+  alertDivBtn.addEventListener('click', () => {
+    const parentDiv = alertDiv;
+    trafficSection.removeChild(parentDiv);
+  })
+
+})
+
 // Navigation
 const desktopNav = document.getElementById('desktop-nav');
 const membersNav = document.getElementById('members-nav');
@@ -40,11 +72,21 @@ settingsNav.addEventListener('click', () => {
 
 })
 
+
+// Message User
+const messageForm = document.querySelector('.message-form')
+
+messageForm.addEventListener('submit', e => {
+  e.preventDefault();
+})
+
+
 // Settings
 const emailNotifsLabels = document.querySelectorAll('#email-notifications-btn ~ p');
 const emailNotifsButton = document.getElementById('email-notifications-btn');
 const publicProfileLabels = document.querySelectorAll('#public-profile-btn ~ p');
 const publicProfileButton = document.getElementById('public-profile-btn');
+const settingsForm = document.querySelector('.settings-form');
 
 const whitenLabels = (e, color) => {
   for (let i = 0; e.length; i += 1) {
@@ -52,6 +94,7 @@ const whitenLabels = (e, color) => {
   }
 }
 
+// Slide Buttons
 emailNotifsButton.addEventListener('click', () => {
 
   const emailSlideButton = emailNotifsButton.parentNode;
@@ -110,6 +153,11 @@ publicProfileButton.addEventListener('click', () => {
     profileSlideButton.style.backgroundColor = "rgb(255, 255, 255)";
   }
 
+})
+
+// Form Submission
+settingsForm.addEventListener('submit', e => {
+  e.preventDefault();
 })
 
 

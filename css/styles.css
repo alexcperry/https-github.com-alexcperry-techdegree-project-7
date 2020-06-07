@@ -36,13 +36,12 @@ svg {
 
 form button {
   border-style: solid;
+  width:  45%;
 }
 
 /*----------------------------------*/
 /*           Header Styles          */
 /*----------------------------------*/
-
-
 
 header {
   display: flex;
@@ -62,6 +61,18 @@ header div {
 .grey-title {
   color: #ccc;
   font-weight: lighter;
+}
+
+#notification-alert{
+  position: absolute;
+  top: 10px;
+  right: 72px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: lime;
+  border-style: none;
+  cursor: pointer;
 }
 
 .user-name {
@@ -129,6 +140,20 @@ nav {
   border-radius: 5px;
 }
 
+.notification {
+  background-color: #7575C4;
+  padding: 10px;
+}
+
+.notification span {
+  font-weight: bold;
+  color: white;
+}
+
+.notification p {
+  color: white;
+}
+
 /*----------------------------------*/
 /*       Daily Traffic Styles       */
 /*----------------------------------*/
@@ -177,7 +202,7 @@ nav {
   align-items: center;
   height: 50px;
   width: 50px;
-  background-color: darkblue;
+  background-color: #7575C4;
   border-radius: 50%;
 }
 
@@ -273,6 +298,7 @@ nav {
   background-color: #5252bc;
   color: #fff;
   font-weight: bold;
+  height: 30px;
 }
 
 /*----------------------------------*/
@@ -281,7 +307,9 @@ nav {
 
 .settings {
   grid-area: 'settings';
-}
+  align-items: flex-start;
+  justify-content: space-between;
+} 
 
 .setting-group {
   display: flex;
@@ -333,6 +361,16 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
+  height: 70px;
+}
+
+.settings-form select {
+  /* width: 60%; */
+}
+
+.settings-btn {
+  width: 100%;
 }
 
 #settings-save-btn {
@@ -340,11 +378,13 @@ nav {
   color: #fff;
   font-weight: bold;
   border-radius: 5px;
+  height: 30px;
 }
 
 #settings-cancel-btn {
   background-color: #ddd;
   border-radius: 5px;
+  height: 30px;
 }
 
 /*----------------------------------*/
@@ -365,6 +405,11 @@ nav {
     "navigation recent-activity"
     "navigation message-user"
     "navigation settings";
+  }
+
+  h3:first-child,
+  h3:nth-child(2) {
+    align-self: flex-start;
   }
 
   .navigation {
