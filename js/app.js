@@ -1,3 +1,6 @@
+// USER LIST
+let userLst = ['Victoria Chambers', 'Dale Byrd', 'Dawn Wood', 'Dan Oliver'];
+
 // SETTINGS
 
 let savedNotificationsSetting = localStorage.getItem('notificationsSetting') === "true";
@@ -148,10 +151,29 @@ settingsNav.addEventListener('click', () => {
 
 
 // Message User
-const messageForm = document.querySelector('.message-form')
+const messageForm = document.querySelector('.message-form');
+const messageFormWrapper = messageForm.parentNode;
+const messageRecipient = document.getElementById('message-recipient');
 
 messageForm.addEventListener('submit', e => {
+
+  //Prevent default
   e.preventDefault();
+
+  //Remove form
+  messageFormWrapper.removeChild(messageForm);
+
+  //Create confirmation div
+  const confirmationDiv = document.createElement('div');
+  confirmationDiv.className = "confirmation";
+  const confirmationMsg = document.createElement('p');
+  const recipient = messageRecipient.value;
+  confirmationMsg.textContent = `Thank you! Your message was sent to ${recipient}`;
+  confirmationDiv.appendChild(confirmationMsg);
+
+  //Add confirmation div to parent
+  messageFormWrapper.appendChild(confirmationDiv);
+
 })
 
 
