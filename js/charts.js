@@ -5,10 +5,10 @@ let ctx1 = document.getElementById('web-traffic-chart').getContext('2d');
 var myChart = new Chart(ctx1, {
   type: 'line',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
     datasets: [{
       label: '# of Votes',
-      data: [6, 10, 3, 5, 2, 3],
+      data: [1, 3, 2, 3, 4, 5, 4, 4, 6, 4, 3, 1, 3, 2, 3],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -32,7 +32,7 @@ var myChart = new Chart(ctx1, {
     scales: {
       yAxes: [{
         ticks: {
-          beginAtZero: true
+          beginAtZero: false
         }
       }]
     }
