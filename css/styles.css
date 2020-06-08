@@ -546,6 +546,7 @@ nav {
 
   .navigation ul {
     flex-direction: column;
+    margin-top: 5px;
   }
 
   .chosen-nav {
