@@ -67,11 +67,11 @@ timeZoneSelect.value = savedTimeZone;
 
 // Header
 const notificationAlert = document.getElementById('notification-alert');
+const bellSVG = document.getElementById('bell-svg');
 const trafficSection = document.querySelector('.traffic');
 const trafficContent = document.querySelector('.traffic-content');
 
-notificationAlert.addEventListener('click', () => {
-
+const makeNotification = () => {
   //Create HTML elements
   const alertDiv = document.createElement('div');
   alertDiv.className = "notification";
@@ -97,7 +97,14 @@ notificationAlert.addEventListener('click', () => {
     const parentDiv = alertDiv;
     trafficSection.removeChild(parentDiv);
   })
+}
 
+notificationAlert.addEventListener('click', () => {
+  makeNotification();
+})
+
+bellSVG.addEventListener('click', () => {
+  makeNotification();
 })
 
 // Navigation

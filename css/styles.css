@@ -63,7 +63,9 @@ header div {
   font-weight: lighter;
 }
 
-
+#bell-svg {
+  cursor: pointer;
+}
 
 @keyframes bell-grow {
   0%{
@@ -322,6 +324,12 @@ nav {
 .member-info {
   display: flex;
   flex-direction: column;
+}
+
+.member-info a {
+  color: #7575C4;
+  word-break: break-all;
+  text-decoration: none;
 }
 
 .recent-button {
@@ -614,8 +622,13 @@ nav {
   }
 
   .social-stat-box {
+    height: 80px;
     max-width: 200px;
     margin: 10px 20px;
+  }
+
+  .blue-circle {
+    margin-left: 10px;
   }
 
   /*----------------------------------*/
