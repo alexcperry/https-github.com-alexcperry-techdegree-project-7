@@ -1,5 +1,19 @@
 // USER LIST
-let userLst = ['Victoria Chambers', 'Dale Byrd', 'Dawn Wood', 'Dan Oliver'];
+let userLst = ['Victoria Chambers',
+  'Dale Byrd',
+  'Dawn Wood',
+  'Dan Oliver',
+  'Mickey Mouse'];
+
+//Includes function (because IE < 9 doesn't support indexof())
+const includesString = (lst, item) => {
+  for (let i = 0; i < lst.length; i += 1) {
+    if (lst[i].toLowerCase() === item.toLowerCase()) {
+      return true;
+    }
+  }
+  return false;
+}
 
 // SETTINGS
 
@@ -8,6 +22,7 @@ let savedPublicProfile = localStorage.getItem('profileSetting') === "true";
 let savedTimeZone = localStorage.getItem('timezoneSetting') || "EST";
 let setNotificationsSetting = savedNotificationsSetting;
 let setPublicProfile = savedPublicProfile;
+let noErrors = true;
 
 
 // PAGE SETUP (Settings - Event Listeners below)
@@ -157,22 +172,49 @@ const messageRecipient = document.getElementById('message-recipient');
 
 messageForm.addEventListener('submit', e => {
 
+  const recipient = messageRecipient.value;
+
   //Prevent default
   e.preventDefault();
 
-  //Remove form
-  messageFormWrapper.removeChild(messageForm);
+  if (includesString(userLst, recipient)) {
+    //Remove form
+    messageFormWrapper.removeChild(messageForm);
 
-  //Create confirmation div
-  const confirmationDiv = document.createElement('div');
-  confirmationDiv.className = "confirmation";
-  const confirmationMsg = document.createElement('p');
-  const recipient = messageRecipient.value;
-  confirmationMsg.textContent = `Thank you! Your message was sent to ${recipient}`;
-  confirmationDiv.appendChild(confirmationMsg);
+    //Create confirmation div
+    const confirmationDiv = document.createElement('div');
+    confirmationDiv.className = "confirmation";
+    const confirmationMsg = document.createElement('p');
+    confirmationMsg.textContent = `Thank you! Your message was sent to ${recipient}`;
+    confirmationDiv.appendChild(confirmationMsg);
 
-  //Add confirmation div to parent
-  messageFormWrapper.appendChild(confirmationDiv);
+    //Add confirmation div to parent
+    messageFormWrapper.appendChild(confirmationDiv);
+
+    //Remove errors
+    if (!noErrors) {
+      const errorDiv = document.querySelector('.message-error');
+      messageFormWrapper.removeChild(errorDiv);
+    }
+
+  } else if (noErrors) {
+
+    //Create error div
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'message-error';
+    const errorMsg = document.createElement('p');
+    errorMsg.textContent = "Please select a valid user";
+    errorDiv.appendChild(errorMsg);
+
+    //Add error div to parent
+    messageFormWrapper.appendChild(errorDiv);
+
+    //Make parent's position relative
+    messageFormWrapper.style.position = "relative";
+
+    //Prevent multiple error boxes from appearing
+    noErrors = false;
+  }
 
 })
 

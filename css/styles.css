@@ -404,6 +404,20 @@ nav {
   border-radius: 15px;
 }
 
+.message-error {
+  position: absolute;
+  top: 8px;
+  right: 0px;
+  background-color: red;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.message-error p {
+  color: white;
+  font-weight: bold;
+}
+
 /*----------------------------------*/
 /*          Settings Styles         */
 /*----------------------------------*/
