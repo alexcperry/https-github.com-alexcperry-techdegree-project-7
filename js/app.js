@@ -5,7 +5,6 @@ let savedPublicProfile = localStorage.getItem('profileSetting') === "true";
 let savedTimeZone = localStorage.getItem('timezoneSetting') || "EST";
 let setNotificationsSetting = savedNotificationsSetting;
 let setPublicProfile = savedPublicProfile;
-let setTimeZone = savedTimeZone;
 
 
 // PAGE SETUP (Settings - Event Listeners below)
@@ -17,12 +16,6 @@ const timeZoneSelect = document.getElementById('timezone');
 const settingsForm = document.querySelector('.settings-form');
 const saveButton = document.getElementById('settings-save-btn');
 const cancelButton = document.getElementById('settings-cancel-btn');
-
-const whitenLabels = (e, color) => {
-  for (let i = 0; e.length; i += 1) {
-    e[i].style.color = color;
-  }
-}
 
 const changeSlideButton = (checkButton, labels, setValue) => {
   const slide = checkButton.parentNode;
@@ -40,7 +33,6 @@ const changeSlideButton = (checkButton, labels, setValue) => {
       labels[i].style.color = "grey";
       labels[i].style.fontWeight = "";
     }
-
   }
 
   if (setValue) {
@@ -65,6 +57,9 @@ if (savedPublicProfile) {
   publicProfileButton.checked = true;
   changeSlideButton(publicProfileButton, publicProfileLabels, setPublicProfile);
 }
+
+// Timezone Setting
+timeZoneSelect.value = savedTimeZone;
 
 
 
@@ -179,6 +174,9 @@ const resetSlide = (set, saved, button, labels) => {
 // Submission Buttons
 saveButton.addEventListener('click', e => {
   e.preventDefault();
+  savedNotificationsSetting = setNotificationsSetting;
+  savedPublicProfile = setPublicProfile;
+  savedTimeZone = timeZoneSelect.value;
   localStorage.setItem('notificationsSetting', setNotificationsSetting.toString());
   localStorage.setItem('profileSetting', setPublicProfile.toString());
   localStorage.setItem('timezoneSetting', timeZoneSelect.value);
@@ -188,9 +186,8 @@ cancelButton.addEventListener('click', e => {
   e.preventDefault();
   resetSlide(setNotificationsSetting, savedNotificationsSetting, emailNotifsButton, emailNotifsLabels);
   resetSlide(setPublicProfile, savedPublicProfile, publicProfileButton, publicProfileLabels);
-  //TODO need code to reset timezone
+  timeZoneSelect.value = savedTimeZone;
   setNotificationsSetting = savedNotificationsSetting;
   setPublicProfile = savedPublicProfile;
-  setTimeZone = savedTimeZone;
 
 })
