@@ -1,3 +1,75 @@
+// SETTINGS
+
+let savedNotificationsSetting = localStorage.getItem('notificationsSetting') === "true";
+let savedPublicProfile = localStorage.getItem('profileSetting') === "true";
+let savedTimeZone = localStorage.getItem('timezoneSetting') || "EST";
+let setNotificationsSetting = savedNotificationsSetting;
+let setPublicProfile = savedPublicProfile;
+let setTimeZone = savedTimeZone;
+
+console.log(savedNotificationsSetting.toString());
+console.log(savedPublicProfile.toString());
+
+
+
+// PAGE SETUP (Settings - Event Listeners below)
+const emailNotifsLabels = document.querySelectorAll('#email-notifications-btn ~ p');
+const emailNotifsButton = document.getElementById('email-notifications-btn');
+const publicProfileLabels = document.querySelectorAll('#public-profile-btn ~ p');
+const publicProfileButton = document.getElementById('public-profile-btn');
+const settingsForm = document.querySelector('.settings-form');
+const saveButton = document.getElementById('settings-save-btn');
+const cancelButton = document.getElementById('settings-cancel-btn');
+
+const whitenLabels = (e, color) => {
+  for (let i = 0; e.length; i += 1) {
+    e[i].style.color = color;
+  }
+}
+
+const changeSlideButton = (checkButton, labels, setValue) => {
+  const slide = checkButton.parentNode;
+  for (let i = 0; i < labels.length; i += 1) {
+    if (labels[i].className === "switch-label hidden") {
+      labels[i].className = "switch-label";
+    } else {
+      labels[i].className += " hidden";
+    }
+
+    if (setValue) {
+      labels[i].style.color = "#fff";
+      labels[i].style.fontWeight = "bold";
+    } else {
+      labels[i].style.color = "grey";
+      labels[i].style.fontWeight = "";
+    }
+
+  }
+
+  if (setValue) {
+    slide.style.backgroundColor = "rgb(82, 82, 188)";
+    return true;
+  } else {
+    slide.style.backgroundColor = "rgb(255, 255, 255)";
+    return false;
+  }
+}
+
+// Notification Setting
+if (savedNotificationsSetting) {
+  setNotificationsSetting = true;
+  emailNotifsButton.checked = true;
+  changeSlideButton(emailNotifsButton, emailNotifsLabels, setNotificationsSetting);
+}
+
+// Profile Setting
+if (savedPublicProfile) {
+  setPublicProfile = true;
+  publicProfileButton.checked = true;
+  changeSlideButton(publicProfileButton, publicProfileLabels, setPublicProfile);
+}
+
+
 
 // EVENT LISTENERS
 
@@ -85,82 +157,46 @@ messageForm.addEventListener('submit', e => {
 
 
 // Settings
-const emailNotifsLabels = document.querySelectorAll('#email-notifications-btn ~ p');
-const emailNotifsButton = document.getElementById('email-notifications-btn');
-const publicProfileLabels = document.querySelectorAll('#public-profile-btn ~ p');
-const publicProfileButton = document.getElementById('public-profile-btn');
-const settingsForm = document.querySelector('.settings-form');
-
-const whitenLabels = (e, color) => {
-  for (let i = 0; e.length; i += 1) {
-    e[i].style.color = color;
-  }
-}
 
 // Slide Buttons
+
 emailNotifsButton.addEventListener('click', () => {
-
-  const emailSlideButton = emailNotifsButton.parentNode;
-
-  for (let i = 0; i < emailNotifsLabels.length; i += 1) {
-    if (emailNotifsLabels[i].className === "switch-label hidden") {
-      emailNotifsLabels[i].className = "switch-label";
-    } else {
-      emailNotifsLabels[i].className += " hidden";
-    }
-
-    if (emailNotifsButton.checked) {
-      emailNotifsLabels[i].style.color = "#fff";
-      emailNotifsLabels[i].style.fontWeight = "bold";
-    } else {
-      emailNotifsLabels[i].style.color = "grey";
-      emailNotifsLabels[i].style.fontWeight = "";
-    }
-  }
-
-  if (emailSlideButton.style.backgroundColor === "rgb(255, 255, 255)" ||
-    emailSlideButton.style.backgroundColor === "") {
-    emailSlideButton.style.backgroundColor = "rgb(82, 82, 188)";
-  } else {
-    emailSlideButton.style.backgroundColor = "rgb(255, 255, 255)";
-  }
-
+  setNotificationsSetting = !setNotificationsSetting;
+  changeSlideButton(emailNotifsButton, emailNotifsLabels, setNotificationsSetting);
 })
 
 publicProfileButton.addEventListener('click', () => {
-
-  const profileSlideButton = publicProfileButton.parentNode;
-
-  for (let i = 0; i < publicProfileLabels.length; i += 1) {
-    if (publicProfileLabels[i].className === "switch-label hidden") {
-      publicProfileLabels[i].className = "switch-label";
-    } else {
-      publicProfileLabels[i].className += " hidden";
-    }
-
-    if (publicProfileButton.checked) {
-      publicProfileLabels[i].style.color = "#fff";
-      publicProfileLabels[i].style.fontWeight = "bold";
-    } else {
-      publicProfileLabels[i].style.color = "grey";
-      publicProfileLabels[i].style.fontWeight = "";
-    }
-  }
-
-  if (profileSlideButton.style.backgroundColor === "rgb(255, 255, 255)" ||
-    profileSlideButton.style.backgroundColor === "") {
-    profileSlideButton.style.backgroundColor = "rgb(82, 82, 188)";
-  } else {
-    profileSlideButton.style.backgroundColor = "rgb(255, 255, 255)";
-  }
-
+  setPublicProfile = !setPublicProfile;
+  changeSlideButton(publicProfileButton, publicProfileLabels, setPublicProfile);
 })
 
 // Form Submission
-settingsForm.addEventListener('submit', e => {
+
+const resetSlide = (set, saved, button, labels) => {
+  if (set !== saved) {
+    changeSlideButton(button, labels, saved);
+    button.checked = !button.checked;
+  }
+}
+
+// Submission Buttons
+saveButton.addEventListener('click', e => {
   e.preventDefault();
+  localStorage.setItem('notificationsSetting', setNotificationsSetting.toString());
+  localStorage.setItem('profileSetting', setPublicProfile.toString());
+  localStorage.setItem('timezoneSetting', 'EST'); //DUMMY VALUE
 })
 
+cancelButton.addEventListener('click', e => {
+  e.preventDefault();
+  resetSlide(setNotificationsSetting, savedNotificationsSetting, emailNotifsButton, emailNotifsLabels);
+  resetSlide(setPublicProfile, savedPublicProfile, publicProfileButton, publicProfileLabels);
+  //TODO need code to reset timezone
+  setNotificationsSetting = savedNotificationsSetting;
+  setPublicProfile = savedPublicProfile;
+  setTimeZone = savedTimeZone;
+
+})
 
 // CHARTS
 
