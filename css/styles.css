@@ -171,12 +171,16 @@ nav {
 
 .notification {
   background-color: #7575C4;
+  margin-top: 15px;
   padding: 10px;
   width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  border-radius: 5px;
+} .notification:first-child {
+  margin-top: 22px;
 }
 
 .notification span {
@@ -401,7 +405,7 @@ nav {
   height: 58px;
   margin: 60px 0;
   background-color: #CFF5B6;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 .message-error {
@@ -646,6 +650,7 @@ nav {
     width: 100%;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 8px;
   }
 
   .social-stat-box {
@@ -736,10 +741,6 @@ nav {
   .social-stats {
     grid-column-start: 2;
     grid-column-end: 4;
-  }
-
-  .social-stats-graphics {
-    margin-bottom: 15px;
   }
 
   /*----------------------------------*/

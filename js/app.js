@@ -98,7 +98,7 @@ const makeNotification = () => {
   alertDivAlertText.className = "alert-text";
   alertDivAlertText.textContent = "Alert";
   const alertDivText = document.createElement('p');
-  alertDivText.textContent = "Text here comes the text, once upon a time there was a good dog - whew!";
+  alertDivText.textContent = "This is an alert. Have a nice day!";
   const alertDivBtn = document.createElement('button');
   alertDivBtn.className = "alert-btn";
   alertDivBtn.textContent = "X";
@@ -203,6 +203,7 @@ messageForm.addEventListener('submit', e => {
     //Remove errors
     if (!noErrors) {
       const errorDiv = document.querySelector('.message-error');
+      console.log(errorDiv);
       messageForm.removeChild(errorDiv);
     }
 
