@@ -378,7 +378,7 @@ nav {
 
 .autocomplete-field {
   position: relative;
-  width: calc(95% - 20px);
+  width: calc(95% + 2px);
 }
 
 .autocomplete-choices {
@@ -416,6 +416,7 @@ nav {
   height: 25px;
   padding: 5px 10px;
   border-style: solid;
+  margin: 0;
 }
 
 .message-form textarea {
