@@ -405,12 +405,14 @@ nav {
 }
 
 .message-error {
-  position: absolute;
+  /* position: absolute;
   top: 8px;
-  right: 0px;
+  right: 0px; */
   background-color: red;
   border-radius: 5px;
   padding: 5px;
+  align-self: flex-start;
+  margin-left: calc(2.5%);
 }
 
 .message-error p {
@@ -699,7 +701,7 @@ nav {
     "navigation social-stats"
     "navigation new-members recent-activity"
     "navigation message-user settings";
-    grid-template-rows: auto auto auto auto auto 220px;
+    grid-template-rows: auto auto auto auto auto minmax(220px, auto);
   }
 
   .wrapper2 {

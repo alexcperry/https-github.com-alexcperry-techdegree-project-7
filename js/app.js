@@ -170,6 +170,15 @@ const messageForm = document.querySelector('.message-form');
 const messageFormWrapper = messageForm.parentNode;
 const messageRecipient = document.getElementById('message-recipient');
 
+
+const capitalize = str => {
+  var splitStr = str.toLowerCase().split(' ');
+  for (var i = 0; i < splitStr.length; i++) {
+    splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+  }
+  return splitStr.join(' ');
+}
+
 messageForm.addEventListener('submit', e => {
 
   const recipient = messageRecipient.value;
@@ -185,7 +194,7 @@ messageForm.addEventListener('submit', e => {
     const confirmationDiv = document.createElement('div');
     confirmationDiv.className = "confirmation";
     const confirmationMsg = document.createElement('p');
-    confirmationMsg.textContent = `Thank you! Your message was sent to ${recipient}`;
+    confirmationMsg.textContent = `Thank you! Your message was sent to ${capitalize(recipient)}`;
     confirmationDiv.appendChild(confirmationMsg);
 
     //Add confirmation div to parent
@@ -194,7 +203,7 @@ messageForm.addEventListener('submit', e => {
     //Remove errors
     if (!noErrors) {
       const errorDiv = document.querySelector('.message-error');
-      messageFormWrapper.removeChild(errorDiv);
+      messageForm.removeChild(errorDiv);
     }
 
   } else if (noErrors) {
@@ -207,10 +216,8 @@ messageForm.addEventListener('submit', e => {
     errorDiv.appendChild(errorMsg);
 
     //Add error div to parent
-    messageFormWrapper.appendChild(errorDiv);
+    messageForm.insertBefore(errorDiv, messageRecipient.nextElementSibling);
 
-    //Make parent's position relative
-    messageFormWrapper.style.position = "relative";
 
     //Prevent multiple error boxes from appearing
     noErrors = false;
