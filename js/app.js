@@ -200,13 +200,6 @@ messageForm.addEventListener('submit', e => {
     //Add confirmation div to parent
     messageFormWrapper.appendChild(confirmationDiv);
 
-    //Remove errors
-    if (!noErrors) {
-      const errorDiv = document.querySelector('.message-error');
-      console.log(errorDiv);
-      messageForm.removeChild(errorDiv);
-    }
-
   } else if (noErrors) {
 
     //Create error div

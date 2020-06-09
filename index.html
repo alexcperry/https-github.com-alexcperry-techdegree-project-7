@@ -322,8 +322,10 @@
     <div class="message-user section">
       <div class="wrapper">
         <h3 class="section-heading">Message User</h3>
-        <form class="message-form">
-          <input id="message-recipient" type="text" placeholder="Search for User">
+        <form autocomplete="off" class="message-form">
+          <div class="autocomplete-field">
+            <input id="message-recipient" type="text" placeholder="Search for User">
+          </div>
           <textarea placeholder="Message for User"></textarea>
           <button type="submit" class="submit-btn">Send</button>
         </form>
@@ -368,6 +370,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/charts.js"></script>
+  <script src="js/autocomplete.js"></script>
 </body>
 
 </html>
@@ -375,6 +378,5 @@
 <!-- 
 Known Issues List:
 1. Canvases too large on full screen
-2. Autocomplete search user
-3. Bug with sending message, having previously gotten error
+2. Autocomplete input layout
 -->
