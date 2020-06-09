@@ -3,7 +3,8 @@ let userLst = ['Victoria Chambers',
   'Dale Byrd',
   'Dawn Wood',
   'Dan Oliver',
-  'Mickey Mouse'];
+  'Mickey Mouse',
+  'Alex Perry'];
 
 //Includes function (because IE < 9 doesn't support indexof())
 const includesString = (lst, item) => {
@@ -22,7 +23,7 @@ let savedPublicProfile = localStorage.getItem('profileSetting') === "true";
 let savedTimeZone = localStorage.getItem('timezoneSetting') || "EST";
 let setNotificationsSetting = savedNotificationsSetting;
 let setPublicProfile = savedPublicProfile;
-let noErrors = true;
+let errorDivExists = false;
 
 
 // PAGE SETUP (Settings - Event Listeners below)
@@ -168,8 +169,9 @@ settingsNav.addEventListener('click', () => {
 // Message User
 const messageForm = document.querySelector('.message-form');
 const messageFormWrapper = messageForm.parentNode;
+const autoCompleteDiv = document.getElementsByClassName('autocomplete-field')[0];
 const messageRecipient = document.getElementById('message-recipient');
-
+const messageTextarea = document.querySelector('.message-form textarea');
 
 const capitalize = str => {
   var splitStr = str.toLowerCase().split(' ');
@@ -182,11 +184,23 @@ const capitalize = str => {
 messageForm.addEventListener('submit', e => {
 
   const recipient = messageRecipient.value;
+  const msgText = messageTextarea.value.trim();
+
+  const updateErrorText = () => {
+    // Given an errorMsg, returns the textContent it should have
+    if (!includesString(userLst, recipient)) {
+      return "Please select a valid user";
+    } else if (msgText === '') {
+      return "Please enter a non-empty message";
+    } else {
+      console.error("There is no error to write text for");
+    }
+  }
 
   //Prevent default
   e.preventDefault();
 
-  if (includesString(userLst, recipient)) {
+  if (includesString(userLst, recipient) && msgText !== '') {
     //Remove form
     messageFormWrapper.removeChild(messageForm);
 
@@ -200,21 +214,22 @@ messageForm.addEventListener('submit', e => {
     //Add confirmation div to parent
     messageFormWrapper.appendChild(confirmationDiv);
 
-  } else if (noErrors) {
-
+  } else if (!errorDivExists) {
     //Create error div
     const errorDiv = document.createElement('div');
     errorDiv.className = 'message-error';
     const errorMsg = document.createElement('p');
-    errorMsg.textContent = "Please select a valid user";
+    errorMsg.textContent = updateErrorText();
     errorDiv.appendChild(errorMsg);
 
     //Add error div to parent
-    messageForm.insertBefore(errorDiv, messageRecipient.nextElementSibling);
-
+    messageForm.insertBefore(errorDiv, autoCompleteDiv.nextElementSibling);
 
     //Prevent multiple error boxes from appearing
-    noErrors = false;
+    errorDivExists = true;
+  } else {
+    const msgToChange = document.querySelector('.message-error p');
+    msgToChange.textContent = updateErrorText();
   }
 
 })
@@ -223,7 +238,6 @@ messageForm.addEventListener('submit', e => {
 // Settings
 
 // Slide Buttons
-
 emailNotifsButton.addEventListener('click', () => {
   setNotificationsSetting = !setNotificationsSetting;
   changeSlideButton(emailNotifsButton, emailNotifsLabels, setNotificationsSetting);
@@ -235,7 +249,6 @@ publicProfileButton.addEventListener('click', () => {
 })
 
 // Form Submission
-
 const resetSlide = (set, saved, button, labels) => {
   if (set !== saved) {
     changeSlideButton(button, labels, saved);
@@ -261,5 +274,4 @@ cancelButton.addEventListener('click', e => {
   timeZoneSelect.value = savedTimeZone;
   setNotificationsSetting = savedNotificationsSetting;
   setPublicProfile = savedPublicProfile;
-
 })

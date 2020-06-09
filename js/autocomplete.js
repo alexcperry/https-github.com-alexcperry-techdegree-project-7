@@ -6,14 +6,12 @@ function addActive(choice) {
   if (currentFocus >= choice.length) currentFocus = 0;
   if (currentFocus < 0) currentFocus = (choice.length - 1);
   choice[currentFocus].classList.add("autocomplete-active");
-  console.log("adding active!");
 }
 
 const removeActive = choice => {
   for (var i = 0; i < choice.length; i++) {
     choice[i].classList.remove("autocomplete-active");
   }
-  console.log("removing active!");
 }
 
 const closeAllLists = element => {

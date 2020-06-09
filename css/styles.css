@@ -452,7 +452,7 @@ nav {
   border-radius: 5px;
   padding: 5px;
   align-self: flex-start;
-  margin-left: calc(2.5%);
+  margin-left: calc(2.5% + 10px);
 }
 
 .message-error p {
